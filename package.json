@@ -1,0 +1,35 @@
+{
+  "name": "studio97",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "next start",
+    "build": "npm run build:sass && npm run build:cleancss && npm run build:next",
+    "build:sass": "npx sass public/dev-assets/scss/main.scss public/dev-assets/css/main.css",
+    "build:cleancss": "npx cleancss public/dev-assets/css/main.css --output public/dev-assets/css/main.css --source-map",
+    "build:next": "npx next build",
+    "dev": "concurrently \"npm:dev:next\" \"npm:dev:sass\"",
+    "dev:next": "next dev",
+    "dev:sass": "sass --watch public/dev-assets/scss/main.scss public/dev-assets/css/main.css"
+  },
+  "dependencies": {
+    "bootstrap": "^4.5.2",
+    "clean-css-cli": "^4.3.0",
+    "concurrently": "^5.3.0",
+    "html-react-parser": "^0.13.0",
+    "ify-loader": "^1.1.0",
+    "imagesloaded": "^4.1.4",
+    "ityped": "^1.0.3",
+    "masonry-layout": "^4.2.2",
+    "next": "9.5.2",
+    "node-html-parser": "^1.2.20",
+    "plotly.js": "^1.57.1",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-plotly.js": "^2.5.0",
+    "sass": "^1.26.10",
+    "typewriter-effect": "^2.13.1",
+    "uuid": "^8.3.0",
+    "uuidv4": "^6.2.3"
+  }
+}
