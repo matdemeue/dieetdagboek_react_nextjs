@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 const Menu = () => (
+
   <div className="container-fluid bg_p-blue py-2">
     <div className="container">
       <nav className="navbar navbar-expand-lg navbar-light">
@@ -12,11 +13,12 @@ const Menu = () => (
           <ul className="navbar-nav w-100 d-flex justify-content-end">
             <li className="nav-item">
                 <Link href="/gewicht">
-                <a className="nav-link">Gewichtsverloop</a>
+                  <a className="nav-link">Gewichtsverloop</a>
                 </Link>
             </li>
           </ul>
         </div>
+        
       </nav>
     </div>
   </div>

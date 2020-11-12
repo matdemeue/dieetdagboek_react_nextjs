@@ -1,7 +1,3 @@
-import Link from "next/link";
-import { v4 as uuidv4 } from "uuid";
-import { useEffect } from "react";
-
 const ExcItem = (props) => {
   return (
     <div className="col-lg-6" style={{ marginBottom: "30px" }}>

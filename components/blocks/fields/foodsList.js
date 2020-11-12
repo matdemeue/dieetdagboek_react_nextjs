@@ -4,7 +4,6 @@ import Totals from "./totals.js";
 import { useState, useEffect } from "react";
 
 const FoodList = () => {
-  const [kleding, setKleding] = useState();
   const [dinner, setDinner] = useState();
   const [ontbijt, setOntbijt] = useState();
   const [lunch, setLunch] = useState();
@@ -14,7 +13,7 @@ const FoodList = () => {
 
   var today = new Date();
   var dd = String(today.getDate()).padStart(2, "0");
-  var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+  var mm = String(today.getMonth() + 1).padStart(2, "0"); //Januari is 0!
   var yyyy = today.getFullYear();
 
   useEffect(() => {
@@ -28,7 +27,6 @@ const FoodList = () => {
       });
       let resData = await response.json();
 
-      setKleding(resData);
       setOntbijt(resData[0].ontbijt);
       setDinner(resData[0].dinner);
       setLunch(resData[0].lunch);
@@ -64,12 +62,8 @@ const FoodList = () => {
     fetchData();
     fetchTotals();
     fetchExercise();
-
-    console.log(kleding);
-    // console.log(results);
   }, []);
 
-  console.log(kleding);
   return (
     <div id="aboutJobs" className="py-5">
       <div className="container">
