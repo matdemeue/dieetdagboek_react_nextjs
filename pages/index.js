@@ -1,11 +1,15 @@
 import Head from "next/head";
-
 import Menu from "../components/layouts/menu";
 import Homehero from "../components/blocks/home/hero";
 import Footer from "../components/layouts/footer";
 import FoodList from "../components/blocks/fields/foodsList";
+import { useAuth } from "../firebase/auth";
+import { useRouter } from 'next/router';
+import Login from "./login";
 
 const Index = () => {
+  const { user } = useAuth();
+
   return (
     <div>
       <Head>
@@ -24,12 +28,24 @@ const Index = () => {
           rel="stylesheet"
         />
       </Head>
-
+      
       <Menu />
 
+      {!user ?
+      <div className="container my-5">
+        <div className="row">
+          <div className="col-12">
+            <h1>Je bent niet ingelogd!</h1>
+          </div>
+        </div>
+      </div>
+      :
+      <>
       <Homehero />
 
       <FoodList />
+      </>
+      }
 
       <Footer />
 

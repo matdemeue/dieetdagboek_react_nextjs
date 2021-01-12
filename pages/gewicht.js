@@ -3,12 +3,15 @@ import dynamic from "next/dynamic";
 
 import Menu from "../components/layouts/menu";
 import Footer from "../components/layouts/footer";
+import { useAuth } from "../firebase/auth";
 
 const NoSSRComponent = dynamic(() => import("../components/blocks/fields/plotly"), {
   ssr: false,
 });
 
 const GewichtPage = () => {
+  const { user } = useAuth();
+
   return (
     <div>
       <Head>
@@ -30,8 +33,17 @@ const GewichtPage = () => {
 
       <Menu />
 
+      {!user ?
+      <div className="container my-5">
+        <div className="row">
+          <div className="col-12">
+            <h1>Je bent niet ingelogd!</h1>
+          </div>
+        </div>
+      </div>
+      :
       <NoSSRComponent />
-
+      }     
       <Footer />
 
       <script
